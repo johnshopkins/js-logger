@@ -12,7 +12,7 @@ var settings = {}; // see https://docs.sentry.io/clients/javascript/config/
 
 var logger = new JSLogger(dsn, settings);
 
-logger.loaded(function () {
+logger.run().loaded(function () {
 
   // do stuff
 
