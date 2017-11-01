@@ -57,6 +57,8 @@ Logger.prototype.loaded = function (func) {
 
 Logger.prototype.defaultSettings = function () {
 
+  var ignoreUserAgents = this.ignoreUserAgents;
+
   return {
 
     ignoreErrors: [
@@ -78,14 +80,14 @@ Logger.prototype.defaultSettings = function () {
      */
     shouldSendCallback: function (data) {
 
-      if (this.ignoreUserAgents.length === 0) return true;
+      if (ignoreUserAgents.length === 0) return true;
 
       var agent = window.navigator.userAgent;
-      var pattern = new RegExp("(" + this.ignoreUserAgents.join("|") + ")");
+      var pattern = new RegExp("(" + ignoreUserAgents.join("|") + ")");
 
       return !(pattern.test(window.navigator.userAgent));
 
-    }.bind(this)
+    }
 
   };
 };
