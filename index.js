@@ -22,7 +22,8 @@ Logger.prototype.ignoreUserAgents = [
   "gsa-crawler",
   "Firefox\/3\.6",
   "PhantomJS",
-  "Pingdom.com_bot"
+  "Pingdom.com_bot",
+  "QQBrowser"
 ];
 
 /**

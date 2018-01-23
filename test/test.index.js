@@ -1,6 +1,5 @@
 var expect = require("chai").expect;
 var assert = require("chai").assert;
-var sinon = require("sinon");
 
 var Logger = require("../index");
 
@@ -114,6 +113,13 @@ describe("shouldSendCallback()", function () {
   it("Should return false given a Pingdom user agent", function () {
 
     global.window.navigator.userAgent = "Pingdom.com_bot";
+    expect(shouldSendCallback()).to.be.false;
+
+  });
+
+  it("Should return false given a QQBrowesr user agent", function () {
+
+    global.window.navigator.userAgent = "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; Core/1.53.2050.400 QQBrowser/9.5.10218.400)";
     expect(shouldSendCallback()).to.be.false;
 
   });
