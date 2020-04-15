@@ -1,3 +1,5 @@
+import * as Sentry from '@sentry/browser';
+
 /**
  * Create a new logger
  * @param  {string} dsn      Public DSN (found in Sentry)
@@ -5,8 +7,6 @@
  * @param  {object} settings Optional config settings (https://docs.sentry.io/clients/javascript/config/)
  */
 var Logger = function (dsn, settings) {
-
-  if (!dsn) throw new Error("DSN not provided to Logger object");
 
   this.dsn = dsn;
   this.settings = settings || {};
