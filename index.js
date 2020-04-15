@@ -2,7 +2,7 @@ import * as Sentry from '@sentry/browser';
 
 const isUserAgentToIgnore = () => {
 
-  const ignoreUserAgents = ['Vivaldi', 'Firefox\/3\.6', 'PhantomJS', 'Pingdom.com_bot', 'QQBrowser', 'Chrome'];
+  const ignoreUserAgents = ['Vivaldi', 'Firefox\/3\.6', 'PhantomJS', 'Pingdom.com_bot', 'QQBrowser'];
 
   const pattern = new RegExp('(' + ignoreUserAgents.join('|') + ')');
   return pattern.test(window.navigator.userAgent);
