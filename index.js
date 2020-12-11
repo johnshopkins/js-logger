@@ -1,25 +1,5 @@
 import * as Sentry from '@sentry/browser';
 
-const isUserAgentToIgnore = () => {
-
-  const ignoreUserAgents = ['Vivaldi', 'Firefox\/3\.6', 'PhantomJS', 'Pingdom.com_bot', 'QQBrowser'];
-
-  const pattern = new RegExp('(' + ignoreUserAgents.join('|') + ')');
-  return pattern.test(window.navigator.userAgent);
-
-};
-
-const defaultInitOptions = {
-  beforeSend: (event) => {
-
-    if (isUserAgentToIgnore()) {
-      return null;
-    }
-
-    return event;
-  }
-};
-
 const defaultLogOptions = {
   level: 'info',
   extras: {},
@@ -33,8 +13,7 @@ export default class Logger {
    * @param  {object} settings Options (https://docs.sentry.io/error-reporting/configuration/?platform=browser)
    */
   constructor (options) {
-    const opts = { ...defaultInitOptions, ...options};
-    Sentry.init(opts);
+    Sentry.init(options);
   }
 
   /**
