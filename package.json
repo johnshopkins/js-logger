@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/johnshopkins/js-logger#readme",
   "dependencies": {
-    "@sentry/browser": "^5.15.4"
+    "@sentry/browser": "^7.119.1"
   }
 }
